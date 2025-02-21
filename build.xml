@@ -1,5 +1,5 @@
 <project name="Plant" default="compile" basedir=".">
-    <!-- set global properties for this build -->
+    <!-- Set global properties -->
     <property name="src" location="src"/>
     <property name="dist" location="dist"/>
 
@@ -9,19 +9,22 @@
     </target>
 
     <target name="compile" depends="init">
-        <javac includeantruntime="false" srcdir="${src}" destdir="${dist}/classes"/>
+        <javac includeantruntime="false" srcdir="${src}" destdir="${dist}/classes" source="23" target="23">
+        </javac>
     </target>
 
-    <target name="jar" depends="init,compile">
-        <jar destfile="${dist}/${ant.project.name}.jar" basedir="dist/classes">
+    <target name="jar" depends="compile">
+        <jar destfile="${dist}/${ant.project.name}.jar" basedir="${dist}/classes">
             <manifest>
-                <attribute name="Main-Class" value="${ant.project.name}"/>
+                <attribute name="Main-Class" value="Main"/>
             </manifest>
         </jar>
     </target>
 
     <target name="run" depends="jar">
-        <java jar="dist/${ant.project.name}.jar" fork="true"/>
+        <java jar="${dist}/${ant.project.name}.jar" fork="true">
+            <jvmarg value="--enable-preview"/>
+        </java>
     </target>
 
     <target name="clean">
