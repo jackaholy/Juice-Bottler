@@ -28,7 +28,7 @@ public class Plant implements Runnable {
     public Plant(int plantId) {
         this.plantId = plantId;
         thread = new Thread(this, "Plant[" + plantId + "]");
-        // Creates new workers and mailboxes.
+        // Creates new workers and mailboxes. I had some help from https://openai.com/.
         for (int i = 0; i < NUM_WORKERS; i++) {
             BlockingMailbox<Orange> mailbox = new BlockingMailbox<>();
             Worker worker = new Worker(mailbox, i + 1, this);

@@ -35,7 +35,7 @@ public class Worker implements Runnable {
             } else {
                 // Check and see if the orange is bottled yet.
                 // If not, do work on it.
-                while (o.getState() != Orange.State.Bottled) {
+                while (o.getState() != Orange.State.Bottled) { // I had help from https://openai.com/ on this line.
                     System.out.println("State of Plant #" + plant.getPlantId() + ": " + o.getState());
                     o.runProcess();
                 }
