@@ -4,13 +4,13 @@
  * and then stops them while collecting and printing statistics.
  */
 
-// Number of plants to be processing oranges.
-private static final int NUM_PLANTS = 2;
 
 /**
  * Main method which runs the juice simulation.
  */
 public static void main(String[] args) {
+    // Number of plants to be processing oranges.
+    final int NUM_PLANTS = 2;
     // Array where all the plants are stored.
     Plant[] plants = new Plant[NUM_PLANTS];
 
