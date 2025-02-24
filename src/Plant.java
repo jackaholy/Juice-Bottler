@@ -15,8 +15,8 @@ public class Plant implements Runnable {
     private final List<BlockingMailbox<Orange>> mailboxes = new ArrayList<>();
     // An ArrayList to hold the mailboxes.
 
-    private int orangesProvided;
-    private int orangesProcessed;
+    private volatile int orangesProvided;
+    private volatile int orangesProcessed;
     private volatile boolean timeToWork; // Boolean flag to know when it's working time.
     private final int plantId; // Unique plant ID to keep track of plants.
 
